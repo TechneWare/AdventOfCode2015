@@ -24,7 +24,7 @@ namespace AdventOfCode2015.Puzzles
             Gates.Clear();
             Wires.Clear();
 
-            foreach (var line in DataRaw.Split("\r\n", StringSplitOptions.RemoveEmptyEntries))
+            foreach (var line in DataRaw.Replace("\r", "").Split("\n", StringSplitOptions.RemoveEmptyEntries))
             {
                 if (line.Contains("NOT") || line.Contains("SHIFT"))
                 {
@@ -168,7 +168,7 @@ namespace AdventOfCode2015.Puzzles
 
                 answer = $"wire A = {wireASignal}";
             }
-            
+
             Part2Result = answer;
         }
 

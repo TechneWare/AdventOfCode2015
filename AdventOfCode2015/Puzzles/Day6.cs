@@ -30,7 +30,7 @@ namespace AdventOfCode2015.Puzzles
                 analogLights[x] = new int[1000];
             }
 
-            foreach (var ins in DataRaw.Split("\r\n"))
+            foreach (var ins in DataRaw.Replace("\r", "").Split("\n"))
             {
                 var i = ins
                      .Replace("turn on", "Turn_On")

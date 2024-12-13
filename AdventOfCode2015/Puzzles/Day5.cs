@@ -19,7 +19,7 @@ namespace AdventOfCode2015.Puzzles
 
         public override void ParseData()
         {
-            strings = [.. DataRaw.Split("\r\n")];
+            strings = [.. DataRaw.Replace("\r", "").Split("\n")];
         }
 
         public override void Part1(bool isTestMode)
@@ -116,14 +116,14 @@ namespace AdventOfCode2015.Puzzles
             foreach (var p in pairs.Where(p => pairs.Count(p1 => p1 == p) > 1).Distinct())
             {
                 var i = input;
-                
+
                 var idx1 = i.IndexOf(p);
                 i = i.Substring(idx1 + 2);
-                
+
                 var idx2 = i.IndexOf(p);
-                
+
                 result = idx1 >= 0 && idx2 >= 0;
-                if (result) 
+                if (result)
                     break;
             }
 

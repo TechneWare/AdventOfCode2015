@@ -21,7 +21,7 @@ namespace AdventOfCode2015.Puzzles
         {
             boxes.Clear();
 
-            foreach (var line in DataRaw.Split("\r\n"))
+            foreach (var line in DataRaw.Replace("\r", "").Split("\n"))
             {
                 var dims = line.Split('x', StringSplitOptions.RemoveEmptyEntries);
                 boxes.Add(new Box(int.Parse(dims[0]), int.Parse(dims[1]), int.Parse(dims[2])));

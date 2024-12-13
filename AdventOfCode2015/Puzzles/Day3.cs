@@ -20,7 +20,7 @@ namespace AdventOfCode2015.Puzzles
 
         public override void ParseData()
         {
-            paths = DataRaw.Split("\r\n", StringSplitOptions.RemoveEmptyEntries).ToList();
+            paths = DataRaw.Replace("\r", "").Split("\r", StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
         public override void Part1(bool isTestMode)

@@ -21,7 +21,7 @@ namespace AdventOfCode2015.Puzzles
         public override void ParseData()
         {
             StringInfos.Clear();
-            StringInfos = DataRaw.Split("\r\n")
+            StringInfos = DataRaw.Replace("\r", "").Split("\n")
                 .Select(s => new StringInfo(s))
                 .ToList();
         }

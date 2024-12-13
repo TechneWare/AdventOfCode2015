@@ -14,7 +14,7 @@ namespace AdventOfCode2015.Puzzles
 
         public override void ParseData()
         {
-            inputs = [.. DataRaw.Split("\r\n")];
+            inputs = [.. DataRaw.Replace("\r", "").Split("\n")];
         }
 
         public override void Part1(bool isTestMode)
@@ -61,7 +61,7 @@ namespace AdventOfCode2015.Puzzles
             byte[] inputBytes = Encoding.ASCII.GetBytes(input);
             byte[] hashBytes = System.Security.Cryptography.MD5.HashData(inputBytes);
 
-            return Convert.ToHexString(hashBytes); 
+            return Convert.ToHexString(hashBytes);
         }
     }
 }
