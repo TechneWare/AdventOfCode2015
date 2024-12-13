@@ -27,6 +27,8 @@ namespace AdventOfCode2015
                 AnsiConsole.MarkupLine(
                     "\n[green1]Enter a [yellow]day number[/] to run the a puzzle or\n" +
                     "Enter [yellow]'ALL'[/] to run them all[/]");
+
+                Settings.ShowPuzzleText = true;
             }
             else
             {
