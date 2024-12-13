@@ -44,7 +44,10 @@ namespace AdventOfCode2015.Puzzles
         }
         public override void Part2(bool isTestMode)
         {
-
+            if (isTestMode)
+                Part2Result = "There is no Part 2 for Day 25\n";
+            else
+                Part2Result = "!! Merry Christmas !!\n";
         }
         private static long GetCodeAtLocation(int row, int col)
         {
