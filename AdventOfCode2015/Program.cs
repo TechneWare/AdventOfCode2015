@@ -12,11 +12,11 @@ namespace AdventOfCode2015
             var availableCommands = Utils.GetAvailableCommands();
             var parser = new CommandParser(availableCommands);
 
-            parser.ParseCommand(new string[] { "Cls" }).Run();
-            parser.ParseCommand(new string[] { "Welcome" }).Run();
+            parser.ParseCommand(["Cls"]).Run();
+            parser.ParseCommand(["Welcome"]).Run();
 
-            Settings.ShowPuzzleText = false;// !Debugger.IsAttached;
-            parser.ParseCommand(new string[] { "RunPuzzle", "Last" }).Run();
+            Settings.ShowPuzzleText = !Debugger.IsAttached;
+            parser.ParseCommand(["RunPuzzle", "Last"]).Run();
             Settings.ShowPuzzleText = false;
 
             ICommand? lastCommand = null;
