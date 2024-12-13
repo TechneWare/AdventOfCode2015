@@ -1,0 +1,5 @@
+﻿Hit Points: 13
+Damage: 8
+
+Hit Points: 14
+Damage: 8
