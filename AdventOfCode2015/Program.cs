@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows.Input;
 using AdventOfCode2015.Commands;
+using Spectre.Console;
 using ICommand = AdventOfCode2015.Commands.ICommand;
 
 namespace AdventOfCode2015
@@ -15,9 +16,24 @@ namespace AdventOfCode2015
             parser.ParseCommand(["Cls"]).Run();
             parser.ParseCommand(["Welcome"]).Run();
 
-            Settings.ShowPuzzleText = !Debugger.IsAttached;
-            parser.ParseCommand(["RunPuzzle", "Last"]).Run();
-            Settings.ShowPuzzleText = false;
+            if (Utils.GetAllPuzzles().Count() == 25)
+            {
+                AnsiConsole.MarkupLine(
+                    "[green1]All the puzzles for 2015 are complete.\n" +
+                    "Here is the list:\n[/]");
+
+                parser.ParseCommand(["List"]).Run();
+
+                AnsiConsole.MarkupLine(
+                    "\n[green1]Enter a [yellow]day number[/] to run the a puzzle or\n" +
+                    "Enter [yellow]'ALL'[/] to run them all[/]");
+            }
+            else
+            {
+                Settings.ShowPuzzleText = !Debugger.IsAttached;
+                parser.ParseCommand(["RunPuzzle", "Last"]).Run();
+                Settings.ShowPuzzleText = false;
+            }
 
             ICommand? lastCommand = null;
             do
